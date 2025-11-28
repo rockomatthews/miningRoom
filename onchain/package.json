@@ -1,0 +1,17 @@
+{
+  "name": "mining-room-onchain",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "anchor": "./scripts/run-anchor.sh",
+    "build": "npm run anchor -- build",
+    "test": "npm run anchor -- test"
+  },
+  "devDependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@coral-xyz/anchor-cli": "^0.30.1",
+    "@types/jest": "^29.5.13",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  }
+}
