@@ -1,0 +1,10 @@
+error: rustc 1.78.0 is not supported by the following packages:
+  indexmap@2.12.1 requires rustc 1.82
+  rayon@1.11.0 requires rustc 1.80
+  rayon-core@1.13.0 requires rustc 1.80
+  rayon-core@1.13.0 requires rustc 1.80
+  rayon-core@1.13.0 requires rustc 1.80
+Either upgrade rustc or select compatible dependency versions with
+`cargo update <name>@<current-ver> --precise <compatible-ver>`
+where `<compatible-ver>` is the latest version supporting rustc 1.78.0
+

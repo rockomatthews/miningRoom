@@ -44,6 +44,7 @@
 - **HASH stabilization:** Treasury holds SOL and liquid staking receipts; minting HASH requires locking equivalent SOL plus a safety premium. Redemptions burn HASH and release SOL, while an internal controller tweaks fees ±20 bps whenever the peg drifts.
 - **Pricing oracle & swap desk:** Program maintains a TWAP from recent SOL inflows/outflows, which prices MRC and HASH without an external LP. A built-in swap UI lets players swap SOL ⇄ MRC ⇄ HASH, charging 50 bps (30 bps burn, 20 bps insurance).
 - **Stability buffer:** 15% of every SOL inflow routes to an `Insurance PDA`. If Mining Pool liquidity ratio drops below 1.05, insurance automatically backstops claims and temporarily raises burn rates until equilibrium returns.
+- **Hash parity curve:** HASH/day per wallet = `base_hashrate(model + upgrades)` × `cooling efficiency` × `staked_mrc_share`. Running miners in the red without enough staked MRC triggers simulated brownouts, while over-staking without strong rigs only yields minimum emissions. Players must balance heat gambles and staking commitments to unlock peak HASH/second so both earning vectors reinforce each other.
 
 ### Whale-proofing extras
 

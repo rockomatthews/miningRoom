@@ -22,5 +22,5 @@ resolve_anchor() {
 }
 
 ANCHOR_BIN_PATH="$(resolve_anchor)"
-exec "${ANCHOR_BIN_PATH}" "$@"
+exec env RUSTUP_TOOLCHAIN=nightly RUSTC_BOOTSTRAP=1 RUSTFLAGS="--cfg=proc_macro_span --cfg=procmacro2_semver_exempt --cfg=nightly" "${ANCHOR_BIN_PATH}" "$@"
 

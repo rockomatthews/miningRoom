@@ -1,0 +1,1370 @@
+{
+  "address": "61zXhvyP5jZhnj2X8XjT6S6Q1HJZk1wt4MPf9vVg89fq",
+  "metadata": {
+    "name": "mining_room",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "claim_rewards",
+      "discriminator": [
+        4,
+        144,
+        132,
+        71,
+        116,
+        23,
+        151,
+        80
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "room"
+          ]
+        },
+        {
+          "name": "room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mining_pool",
+          "writable": true
+        },
+        {
+          "name": "global_config"
+        },
+        {
+          "name": "stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pending_hash",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  101,
+                  110,
+                  100,
+                  105,
+                  110,
+                  103,
+                  45,
+                  104,
+                  97,
+                  115,
+                  104
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "auto_compound",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "emergency_pause",
+      "discriminator": [
+        21,
+        143,
+        27,
+        142,
+        200,
+        181,
+        210,
+        255
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  45,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "paused",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  45,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "mining_pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  105,
+                  110,
+                  103,
+                  45,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "insurance_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  105,
+                  110,
+                  115,
+                  117,
+                  114,
+                  97,
+                  110,
+                  99,
+                  101
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "InitializeParams"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "purchase_miner",
+      "discriminator": [
+        245,
+        204,
+        186,
+        107,
+        90,
+        41,
+        85,
+        223
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "room"
+          ]
+        },
+        {
+          "name": "room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "miner",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  105,
+                  110,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "room"
+              },
+              {
+                "kind": "account",
+                "path": "room.next_miner_index",
+                "account": "Room"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mining_pool",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "model",
+          "type": {
+            "defined": {
+              "name": "MinerModel"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sell_miner",
+      "discriminator": [
+        150,
+        235,
+        200,
+        199,
+        249,
+        41,
+        103,
+        8
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "miner",
+            "room"
+          ]
+        },
+        {
+          "name": "miner",
+          "writable": true
+        },
+        {
+          "name": "room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "stake_mrc",
+      "discriminator": [
+        125,
+        178,
+        187,
+        122,
+        49,
+        236,
+        146,
+        33
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "mrc_mint"
+        },
+        {
+          "name": "payer_mrc_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "owner"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mrc_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stake_mrc_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "stake"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mrc_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "lock_days",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "unlock_slot",
+      "discriminator": [
+        4,
+        14,
+        75,
+        199,
+        96,
+        245,
+        215,
+        58
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "mining_pool",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "slot_index",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "unstake_mrc",
+      "discriminator": [
+        111,
+        184,
+        242,
+        68,
+        241,
+        238,
+        33,
+        254
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true
+        },
+        {
+          "name": "stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "stake_mrc_account",
+          "writable": true
+        },
+        {
+          "name": "owner_mrc_account",
+          "writable": true
+        },
+        {
+          "name": "mrc_mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "update_params",
+      "discriminator": [
+        108,
+        178,
+        190,
+        95,
+        94,
+        203,
+        116,
+        20
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "signer": true
+        },
+        {
+          "name": "global_config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  103,
+                  108,
+                  111,
+                  98,
+                  97,
+                  108,
+                  45,
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "params",
+          "type": {
+            "defined": {
+              "name": "UpdateParamsInput"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "upgrade_miner",
+      "discriminator": [
+        93,
+        174,
+        185,
+        203,
+        165,
+        148,
+        94,
+        13
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "room",
+            "miner"
+          ]
+        },
+        {
+          "name": "room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "miner",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "upgrade",
+          "type": {
+            "defined": {
+              "name": "UpgradeKind"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "GlobalConfig",
+      "discriminator": [
+        149,
+        8,
+        156,
+        202,
+        160,
+        252,
+        176,
+        217
+      ]
+    },
+    {
+      "name": "InsuranceVault",
+      "discriminator": [
+        131,
+        200,
+        252,
+        180,
+        131,
+        202,
+        30,
+        144
+      ]
+    },
+    {
+      "name": "MinerAccount",
+      "discriminator": [
+        232,
+        196,
+        79,
+        139,
+        222,
+        213,
+        161,
+        99
+      ]
+    },
+    {
+      "name": "MiningPool",
+      "discriminator": [
+        134,
+        149,
+        193,
+        160,
+        11,
+        139,
+        229,
+        253
+      ]
+    },
+    {
+      "name": "PendingHash",
+      "discriminator": [
+        123,
+        216,
+        82,
+        151,
+        159,
+        99,
+        3,
+        7
+      ]
+    },
+    {
+      "name": "Room",
+      "discriminator": [
+        156,
+        199,
+        67,
+        27,
+        222,
+        23,
+        185,
+        94
+      ]
+    },
+    {
+      "name": "StakeAccount",
+      "discriminator": [
+        80,
+        158,
+        67,
+        124,
+        50,
+        189,
+        192,
+        255
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized action for caller"
+    },
+    {
+      "code": 6001,
+      "name": "InsufficientRewards",
+      "msg": "Insufficient rewards to claim"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidTokenAccount",
+      "msg": "Token account does not match expected mint or owner"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidMint",
+      "msg": "Mint does not match expected account"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidAmount",
+      "msg": "Amount must be greater than zero"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidLockPeriod",
+      "msg": "Lock period must be greater than zero"
+    },
+    {
+      "code": 6006,
+      "name": "StakeLocked",
+      "msg": "Stake is still locked"
+    },
+    {
+      "code": 6007,
+      "name": "SlotLimitReached",
+      "msg": "No additional slots available"
+    },
+    {
+      "code": 6008,
+      "name": "InvalidSlotIndex",
+      "msg": "Slot index is invalid for this room"
+    },
+    {
+      "code": 6009,
+      "name": "NoAvailableSlots",
+      "msg": "No unlocked slots are free for another miner"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidRoomReference",
+      "msg": "Miner does not belong to the provided room"
+    },
+    {
+      "code": 6011,
+      "name": "ExceedsEmissionCap",
+      "msg": "Requested amount exceeds the room's emission allowance"
+    }
+  ],
+  "types": [
+    {
+      "name": "GlobalConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "mrc_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "hash_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "emission_rate",
+            "type": "u64"
+          },
+          {
+            "name": "cover_target_bps",
+            "type": "u16"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitializeParams",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mrc_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "hash_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "emission_rate",
+            "type": "u64"
+          },
+          {
+            "name": "cover_target_bps",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InsuranceVault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "reserve_sol",
+            "type": "u64"
+          },
+          {
+            "name": "cover_ratio_bps",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MinerAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "room",
+            "type": "pubkey"
+          },
+          {
+            "name": "model",
+            "type": {
+              "defined": {
+                "name": "MinerModel"
+              }
+            }
+          },
+          {
+            "name": "power_kw",
+            "type": "u16"
+          },
+          {
+            "name": "cooling_pct",
+            "type": "u16"
+          },
+          {
+            "name": "risk_bps",
+            "type": "u16"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "MinerStatus"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "MinerModel",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Basic"
+          },
+          {
+            "name": "Advanced"
+          },
+          {
+            "name": "Hyperscale"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MinerStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Idle"
+          },
+          {
+            "name": "Mining"
+          },
+          {
+            "name": "Cooling"
+          },
+          {
+            "name": "Fried"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MiningPool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "total_sol",
+            "type": "u64"
+          },
+          {
+            "name": "total_mrc",
+            "type": "u64"
+          },
+          {
+            "name": "hash_liability",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PendingHash",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Room",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "slots_unlocked",
+            "type": "u8"
+          },
+          {
+            "name": "next_miner_index",
+            "type": "u8"
+          },
+          {
+            "name": "total_power_kw",
+            "type": "u64"
+          },
+          {
+            "name": "total_cooling_bps",
+            "type": "u64"
+          },
+          {
+            "name": "total_risk_bps",
+            "type": "u64"
+          },
+          {
+            "name": "miner_count",
+            "type": "u8"
+          },
+          {
+            "name": "accrued_hash",
+            "type": "u64"
+          },
+          {
+            "name": "last_harvest_ts",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StakeAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "lock_end_ts",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateParamsInput",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "emission_rate",
+            "type": {
+              "option": "u64"
+            }
+          },
+          {
+            "name": "cover_target_bps",
+            "type": {
+              "option": "u16"
+            }
+          },
+          {
+            "name": "paused",
+            "type": {
+              "option": "bool"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpgradeKind",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Power"
+          },
+          {
+            "name": "Cooling"
+          },
+          {
+            "name": "Firmware"
+          }
+        ]
+      }
+    }
+  ]
+}

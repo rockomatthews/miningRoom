@@ -9,6 +9,7 @@ name = "mining_room"
 
 [dependencies]
 anchor-lang = { workspace = true }
+anchor-spl = { workspace = true }
 
 [features]
 no-entrypoint = []
